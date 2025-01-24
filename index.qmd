@@ -1,0 +1,221 @@
+# Preface {.unnumbered}
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+library(knitr)
+library(tidyverse)
+library(blogdown)
+library(tweetrmd)
+library(tufte)
+```
+
+<article class="drop-cap">In the summer of 2020, the world was on fire -- COVID was raging, we -- especially in Minnesota -- were processing the murder of George Floyd and the subsequent uprising etc, the future was unclear. At that point teaching was likely to be entirely online, and I decided to write a digital book for my course (see the [1st edition](https://bookdown.org/ybrandvain/Applied-Biostats/) and [2nd edition](https://bookdown.org/ybrandvain/Applied_Biostats_Fall_2022/)). I didn't really know what I was doing or what my vision was (and to some extent I still do not). There were hiccups: some strangeness in rendering etc, typos, last minute updates, writing at 2am etc etc, but on the whole there were numerous advantages compared to a traditional textbook. I lay these out here:</article> 
+
+-   My class presentation and the textbook presentation almost always agreed.\
+-   As I was writing and updating as I went the book could be rapidly updated / changed to reflect student needs / interests / timelines / current events etc.\
+-   I could integrate practice problems / youtube links / and even additional readings pretty easily.
+-   It was free for students.
+
+I think all of these benefits were great, and helped a lot, so I am doing it again. This time I'm bringing in my research collaboration with Dave Moller on speciaiton in *Clarkia xantiana* as a them through this book.
+
+## Learning in this era
+
+I know you're dealing with a lot. Every year students are dealing with a lot -- from jobs, to supporting family, to the everyday of being in college and living life etc.... Yet, we are all trying to make the most of life in this era. We want to teach, learn, and grow.
+
+What is more, I believe this content is more important now than it has ever been, statistics is obsessed with the critical evaluation of claims in the face of data, and is therefore particularly useful in uncertain times. Given this focus, and given that you all have different energies, motivations and backgrounds, I am restructuring this course slightly from previous years. The biggest change is a continued de-emphasis on math and programming -- that doesn't mean I'm eliminating these features, but rather that I am streamlining the required math and programming to what I believe are the essentials. For those who want more mathematical and/or computational details (either because you want to push yourself or you need this to make sense of things), I am including a bunch of optional content and support. I am also wrestling with the impact of LLMs in our education (more below).
+
+## I love teaching this course
+
+The content is very important to me. I also care deeply about you. I want to make sure you get all you can / all you need from this course, while recognizing the many challenges we are all facing. One tangible thing I leave you with is this book, which I hope you find useful as you go on in your life. Another thing I leave you with is my concern for your well-being and understanding -- please contact me with any suggestions about the pace / content / you of this course and/or any life updates which may change how and when you can complete the work.
+
+## Course philosophy / goals {.unnumbered}
+
+```{r, echo=FALSE,eval=FALSE}
+tweet_embed("https://twitter.com/LucyStats/status/1086757516674039813")
+```
+
+My motivating goal for this course is to empower you to produce, present, and critically evaluate statistical evidence — especially as applied to biological topics. You should know that stats models are only models and that models are imperfect abstractions of reality. You should be able to think about how a biological question could be formulated as a statistical question, present graphs which show how data speak to this question, be aware of any shortcomings of that model, and how statistical analysis of a data set can be brought back into our biological discussion.
+
+### "By the end of this course...
+
+#### <mark>Students should be statistical thinkers. </mark>
+
+Students will recognize that data are comprised of observations that partially reflect chance sampling, & that a major goal of statistics is to incorporate this idea of chance into our interpretation of observations. Thinking this way can be challenging because it is a fundamentally new way to think about the world. Once this is mastered, much of the material follows naturally. Until then, it's more confusing.
+
+#### <mark> Students should think about probability quantitatively.</mark>
+
+That chance influences observations is CRITICAL to statistics (see above). Quantitatively translating these probabilities into distributions and associated statistical tests allows for mastery of the topic.
+
+#### <mark> Students should recognize how bias can influence our results. </mark>
+
+Not only are results influenced by chance, but factors outside of our focus can also drive results. Identifying subtle biases and non-independence is key to conducting and interpreting statistics.
+
+#### <mark> Students should become familiar with standard statistical tools / approaches and when to use them. </mark>
+
+Recognize how bias can influence our results. What is the difference between Bayesian and frequentist thinking? How can data be visualized effectively? What is the difference between statistical and real-world significance? How do we responsibly present/ interpret statistical results? We will grapple with & answer these questions over the term.
+
+#### <mark> Students should have familiarity with foundational statistical values and concepts. </mark>
+
+Students will gain an intuitive feel for the meaning of stats words like *variance, standard error, p-value, t-statistic, and F-statistic*, and will be able to read and interpret graphs, and how to translate linear models into sentences.
+
+#### <mark> Students should be able to conduct the entire process of data analysis in R. </mark>
+
+Students will be able to utilize the statistical language, R, to summarize, analyze, and combine data to make appropriate visualizations and to conduct appropriate statistical tests.
+
+## `R`, `RStudio`, and the `tidyverse` {.unnumbered}
+
+```{r}
+#| fig-cap: "This image comes with permissions from Allison Horst, who makes tremendous aRt. If you appreciate her work, she would appreciate your support for [Data for Black Lives](https://d4bl.org/)"
+#| column: margin
+#| echo: false
+#| out-width: "90%"
+#| fig-align: center
+include_graphics("index_images/R_monsters.png")
+```
+
+We will be using R ([**version 4.4.0 or above.**]{style="color:red"}) in this course, in the RStudio environment. My goal is to have you empowered to make figures, run analyses, and be well positioned for future work in R, with as much fun and as little pain as possible. RStudio is an environment and the tidyverse is a set of R packages that makes R's powers more accessible without the need to learn a bunch of computer programming.
+
+Some of you might have experience with R and some may not. Some of this experience might be in tidyverse or not. There will be ups and downs — the frustration of not understanding and/or it not working and the joy of small successes. Remember to be patient, forgiving and kind to yourself, your peers, and me. Ask for help from the internet, your friends, TAs, and Yaniv.
+
+### Installing `R`
+
+You can download these onto your computer (Make sure the `R` is version 4.4.0 or above).
+
+1.  Download/update R from [here](https://www.r-project.org/).\
+
+Before you can use `R` you must download and install it$^*$. [$^*$ **This is not strictly true.** You can use `R` online via [posit cloud](https://posit.cloud/). This is a "freemium" service and the free plan is unlikely to meet your needs.]{.column-margin} So, to get started, **download `R` from [CRAN](https://www.r-project.org/)**, and follow the associated installation instructions (see below for detailed instructions for your system).
+
+:::::: panel-tabset
+### Tab 1: PC installation
+
+::: {.instalPC style="background-color: #FDEFB5; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"}
+If you want a walk through, see [Roger Peng]((https://rdpeng.org/))'s tutorial on installing `R` [on a PC](https://www.youtube.com/watch?v=Ohnk9hcxf9M)\].
+
+"To install R on Windows, click the [*Download R for Windows link*](https://cloud.r-project.org/bin/macosx/). Then click the *base* link. Next, click the first link at the top of the new page. This link should say something like *Download R 4.4.2 for Windows* except the 4.4.2 will be replaced by the most current version of R. The link downloads an installer program, which installs the most up-to-date version of R for Windows. Run this program and step through the installation wizard that appears. The wizard will install R into your program files folders and place a shortcut in your Start menu. Note that you’ll need to have all of the appropriate administration privileges to install new software on your machine."
+
+-   From [Appendix A](https://jjallaire.github.io/hopr/a1-starting.html) of [*Hands-On Programming wWith R*](https://jjallaire.github.io/hopr/) -- @grolemund2014.\
+:::
+
+### Tab 2: Mac installation
+
+::: {.instalmac style="background-color: #FDEFB5; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"}
+If you want a walk through, see [Roger Peng]((https://rdpeng.org/))'s tutorial on installing `R` [on a mac](https://youtu.be/uxuuWXU-7UQ)\].
+
+"To install R on a Mac, click the [*Download R for macOS* link](https://cloud.r-project.org/bin/macosx/). Next, click on the \[newest package link compatible with your computer\]. An installer will download to guide you through the installation process, which is very easy. The installer lets you customize your installation, but the defaults will be suitable for most users. I've never found a reason to change them. If your computer requires a password before installing new progams, you’ll need it here."
+
+-   From [Appendix A](https://jjallaire.github.io/hopr/a1-starting.html) of [*Hands-On Programming With R*](https://jjallaire.github.io/hopr/) -- @grolemund2014.\
+:::
+
+### Tab 3: Linux installation
+
+::: {.instalmac style="background-color: #FDEFB5; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"}
+R comes preinstalled on many Linux systems, but you’ll want the newest version of R if yours is out of date. The CRAN website provides files to build R from source on \[Debian\], Redhat, SUSE, and Ubuntu systems under the link “Download R for Linux.” Click the link and then follow the directory trail to the version of Linux you wish to install on. The exact installation procedure will vary depending on the Linux system you use. CRAN guides the process by grouping each set of source files with documentation or README files that explain how to install on your system.
+
+-   From [Appendix A](https://jjallaire.github.io/hopr/a1-starting.html) of [*Hands-On Programming With R*](https://jjallaire.github.io/hopr/) -- @grolemund2014.\
+:::
+::::::
+
+
+### Installing `RStudio` 
+
+2.  Next download/update RStudio from [here](https://rstudio.com/products/rstudio/download/#download).\
+
+Alternatively you can simply join the course via RStudioCloud. This could be desirable if you do not want to or have trouble doing this.
+
+## What is this 'book' and how will we use it? {.unnumbered}
+
+A fanstastic feature of this book is that does not stand alone.
+
+I hope that this book provides clear and useful background for the course, and I advise you to regularly go through each book 'chapter' for the relevant week. **Be sure you get familiar with the content BEFORE class.**
+
+Note that this is not the entirety of the course content, and is not an original piece of my own effort -- in addition from lifting from a few other course online (with attribution), I also make heavy use of these texts:
+
+-   *The Analysis of Biological Data Third Edition [@whitlock2020]:* I taught with this book for years. It fantastic and shaped how I think about teaching Biostats. It has many [useful resources](https://whitlockschluter3e.zoology.ubc.ca/) available online. The writing is great, as are the examples. Most of my material originates here (although I occasionally do things a bit differently). [Buy the latest edition](https://www.macmillanlearning.com/college/us/product/Analysis-of-Biological-Data/p/131922623X).
+
+-   *Calling Bullshit [@bergstrom2020]:* This book is not technical, but points to the big picture concerns of statisticians. It is very practical and well written. I will occasionally assign readings from this book, and/or point you to videos on their [website](https://www.callingbullshit.org/videos.html). All readings will be made available for you, but you might want to [buy a physical copy](https://www.penguinrandomhouse.com/books/563882/calling-bullshit-by-carl-t-bergstrom-and-jevin-d-west/).
+
+-   *Fundamentals of Data Visualization [@wilke2019]:* This book is [free online](https://clauswilke.com/dataviz/), and is very helpful for thinking about graphing data. In my view, graphing is among the most important skills in statistical reasoning, so I reference it regularly.
+
+-   *R for Data Science [@grolemund2018]:* This book is [free online](https://r4ds.had.co.nz/), and is very helpful for doing the sorts of things we do in R regularly. This is a great resource.
+
+-   [*The storytelling with data podcast*](https://www.storytellingwithdata.com/podcast) is a fantastic data viz podcast. Be sure to check out Cole Nussbaumer Knaflic's books too!
+
+I will introduce other resources as we go.
+
+## How will this term work / look? {.unnumbered}
+
+-   Prep for 'class'. This class is flipped with asynchronous content delivery and synchronous meetings.\
+-   Be sure to look over the assigned readings and/or videos, and complete the short low-stakes homework BEFORE each course.\
+-   During class time, I will address questions make announcements, and get you started on in-class work. The TA & I will bounce around your breakout rooms to provide help and check-in. If you cannot make the class, you could do this on your own time without help, but we do not recommend this as a class strategy.\
+-   The help of your classmates and the environment they create is one of the best parts of this class. Help each other.\
+-   In addition to low stakes work before and in class, there will be a few more intense assignments, some collaborative projects, some in class exams, and a summative project as the term ends.
+
+## The Use of Large Language Models
+
+We are in the early days of a truly disruptive technology. Large Language Models (LLMs) like ChatGPT and Claude are transforming how we work and learn. While the impact of these tools on future employment, expertise, and citizenry is yet to be settled, it seems clear that no one will hire you to copy and paste AI-generated output. At the same time, no one will hire you to ignore this technology. Success lies in learning how to critically evaluate and work with LLMs—to validate their output, improve your own understanding, and create high-quality results. Subject-level expertise, in conjunction with strong skills in working with AI, will be essential for the foreseeable future.
+
+I want you to think about this class like learning to play an instrument. You’re here to practice, make mistakes, and build mastery over time. Sure, you could ask an LLM to “play the piece” for you by doing your homework. But if you do that, you’re not the one learning. Instead, use the LLM as a tutor and “practice partner”—a tool to get feedback, refine your technique, and expand what you’re capable of doing. Doing so will allow you to get truly good not just at stats but at using the best tools available to do even better stats.
+
+In fact, over the past year, it has been quite easy for me to differentiate between:
+
+-   Truly poor work from people who did not care and did not use AI,\
+-   Minimal ChatGPT output,\
+-   Strong students who used nearly no AI assistance, and\
+-   Strong students who made their work and understanding better by working with AI.
+
+I hope more of you join the final category!
+
+To aid you in achieving this goal, there will be plenty of opportunities for in-class, computer-free efforts to show your mastery of the subject. I will also provide guidance on individual assignments about the appropriate use of AI to help maximize the impact of the assignment on your learning.
+
+## Acknowledgements
+
+### Students
+
+First and foremost, I would like to thank the more than 500 students who have taken my Applied Biostatistics course. Students provide the most important feedback on whether a particular pedagogical approach is effective. While not every experiment succeeds, I am incredibly grateful to each student who has helped me learn what works and what doesn’t as they engaged with the material.
+
+### Teaching Assistants (TAs)
+
+I have been fortunate to work with outstanding graduate teaching assistants over the past ten years:
+
+-   **Derek Nedveck**: Derek played a key role in helping me establish the course during its early years.
+
+-   [**German Vargas Gutierrez**](https://bpp.oregonstate.edu/users/german-vargas-gutierrez): A highly skilled statistician, German’s assistance was invaluable in refining the course a few years into its development.
+
+-   [**Chaochih Liu**](https://en.wikipedia.org/wiki/Chaochih_Liu): A brilliant programmer, Chaochih contributed greatly to the course's organization and structure.
+
+-   [**Husain Agha**](https://github.com/middlestauthor): Husain has remarkable insights into statistics, genetics, and teaching. My work has greatly benefited from bouncing ideas off him.
+
+-   [**Brooke Kern**](https://www.bellmuseum.umn.edu/grad-awards/2021-graduate-award-and-fellowship-recipients/brooke-kern/): Brooke was not only an exceptional TA but also a valuable collaborator. Much of the data in this book is drawn from her dissertation research.\
+
+```{r}
+#| label: fig-tas
+#| fig-cap: "My incredible TAs who have all helped shape this material."
+#| fig-alt: "Picture of the TAs for Applied Biostats over the years."
+#| message: false
+#| echo: false
+include_graphics("index_images/TAs.png")
+```
+
+### Collaborators
+
+Brooke Kern, [Dave Moeller](https://moellergroup.org/) and Shelley Sianta have generated much of the data in this book and have been patient with my delays in turning around our research during teaching times.
+
+### Teaching Colleagues
+
+I have learned a lot about statistics and how to teach it from [John Fieberg](https://fieberg-lab.cfans.umn.edu/). His book, [Statistics for Ecologists](https://statistics4ecologists-v2.netlify.app/) is fantastic!
+
+### Unknowing contributors
+
+The online community of statistics and `R` teaching is an amazing place. I have borrowed heavily from the many amazing free resources. Here are the most critical:
+
+-   [Allison Horst](https://allisonhorst.com/) has fantastic illustrations for statistics that she makes freely available.
+
+-   [Peter D.R. Higgins](https://www.uofmhealth.org/profile/4/peter-doyle-higgins-md-phd) has created a truly marvelous book -- [Reproducible Medical Research With R](https://bookdown.org/pdr_higgins/rmrwr/) (@higgins2024). I have learned a lot and stolen some teaching tricks from this work.
+
+-   [Jenny Bryan](https://jennybryan.org/about/) has helped me think about getting students able to do things in R well and quickly. Here book, [STAT 545: Data wrangling, exploration, and analysis with R](https://stat545.com) (@bryan2020), is a classic.
+
+```{r, echo=FALSE}
+rm(list = ls())
+```

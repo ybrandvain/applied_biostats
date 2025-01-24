@@ -1,0 +1,23 @@
+project:
+  type: book
+book:
+  title: Applied Biostats
+  author: Yaniv Brandvain
+  date: 12/24/2024
+  chapters:
+  - index.qmd
+
+format:
+  pdf: default
+  html:
+    toc: true
+    toc-depth: 3
+    grid:
+      margin-width: 350px
+    css: include/webex.css
+    include-after-body: include/webex.js
+execute:
+  echo: fenced
+  keep-tex: true
+bibliography: references.bib
+toc-depth: 3
