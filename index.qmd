@@ -79,11 +79,8 @@ We will be using R ([**version 4.4.0 or above.**]{style="color:red"}) in this co
 
 Some of you might have experience with R and some may not. Some of this experience might be in tidyverse or not. There will be ups and downs — the frustration of not understanding and/or it not working and the joy of small successes. Remember to be patient, forgiving and kind to yourself, your peers, and me. Ask for help from the internet, your friends, TAs, and Yaniv.
 
-### Installing `R`
+### Instalation 
 
-You can download these onto your computer (Make sure the `R` is version 4.4.0 or above).
-
-1.  Download/update R from [here](https://www.r-project.org/).\
 
 Before you can use `R` you must download and install it$^*$. [$^*$ **This is not strictly true.** You can use `R` online via [posit cloud](https://posit.cloud/). This is a "freemium" service and the free plan is unlikely to meet your needs.]{.column-margin} So, to get started, **download `R` from [CRAN](https://www.r-project.org/)**, and follow the associated installation instructions (see below for detailed instructions for your system).
 
@@ -118,15 +115,13 @@ R comes preinstalled on many Linux systems, but you’ll want the newest version
 ::::::
 
 
-### Installing `RStudio` 
-
-2.  Next download/update RStudio from [here](https://rstudio.com/products/rstudio/download/#download).\
+**After installing `R` download/update RStudio from [here](https://rstudio.com/products/rstudio/download/#download).**\
 
 Alternatively you can simply join the course via RStudioCloud. This could be desirable if you do not want to or have trouble doing this.
 
 ## What is this 'book' and how will we use it? {.unnumbered}
 
-A fanstastic feature of this book is that does not stand alone.
+A fantastic feature of this book is that does not stand alone.
 
 I hope that this book provides clear and useful background for the course, and I advise you to regularly go through each book 'chapter' for the relevant week. **Be sure you get familiar with the content BEFORE class.**
 
